@@ -1,3 +1,6 @@
+CREATE DATABASE if NOT EXISTS biblioteca_digital;
+USE biblioteca_digital;
+
 CREATE TABLE if NOT EXISTS usuarios (
     id INT AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
@@ -20,7 +23,8 @@ CREATE TABLE if NOT EXISTS recursos_digitales (
 CREATE TABLE if NOT EXISTS historial_descargas (
     id INT AUTO_INCREMENT,
     id_usuario INT NOT NULL,
-    id_usuario INT NOT NULL,
+    id_recurso INT NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT pk_historial PRIMARY KEY (id),
     CONSTRAINT fk_historial_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id),

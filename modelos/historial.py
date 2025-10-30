@@ -3,7 +3,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-
 class HistorialDescargas(Base):
     __tablename__ = 'historial_descargas'
     id = Column(Integer, primary_key=True)
