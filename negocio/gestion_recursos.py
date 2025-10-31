@@ -1,0 +1,6 @@
+from datos.conexion import sesion
+from datos.insertar_datos import insertar_objeto
+from datos.actualizar_datos import actualizar_objeto
+from datos.obtener_datos import obtener_listado_recursos
+from modelos.recurso_digital import RecursoDigital
+from prettytable import PrettyTable
