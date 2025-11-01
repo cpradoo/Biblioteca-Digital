@@ -25,7 +25,7 @@ CREATE TABLE if NOT EXISTS historial_descargas (
     id_usuario INT NOT NULL,
     id_recurso INT NOT NULL,
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-
+    
     CONSTRAINT pk_historial PRIMARY KEY (id),
     CONSTRAINT fk_historial_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
     CONSTRAINT fk_historial_recurso FOREIGN KEY (id_recurso) REFERENCES recursos_digitales(id)

@@ -1,38 +1,25 @@
-from ui.menus import menu_principal, menu_gestion_usuarios, menu_descargas
-from negocio.gestion_usuarios import registrar_usuarios, listar_usuarios, actualizar_usuarios
-from negocio.gestion_descargas import listar_historial_descargas
+from ui.menu_principal import menu_principal
+from ui.menus_extras import gestionar_usuarios, gestionar_recursos
+from negocio.gestion_descargas import descargar_recursos, listar_historial
 
 
-while True:
-    menu_principal()
-    opcion = input("Seleccione una opcion: ")
-    if opcion == "1":
-        menu_gestion_usuarios()
-        op = input("Seleccione una opcion: ")
-        if op == "1":
-            print()
-            registrar_usuarios()
-        elif op == "2":
-            listar_usuarios()
-        elif op == "3":
-            actualizar_usuarios()
-        elif op == "4":
-            continue
+def main():
+    while True:
+        menu_principal()
+        opcion = input("Seleccione una opcion: ")
+        if opcion == "1":
+            gestionar_usuarios()
+        elif opcion == "2":
+            gestionar_recursos()
+        elif opcion == "3":
+            descargar_recursos()
+        elif opcion == "4":
+            listar_historial()
+        elif opcion == "0":
+            print("Saliendo del sistema...")
+            break
         else:
-            print("Opcion invalida.")
-    elif opcion == "2":
-        pass
-    elif opcion == "3":
-        menu_descargas()
-        op = input("Seleccione una opcion: ")
-        if op == "1":
-            pass
-        elif op == "2":
-            #listar_historial_descargas()
-            pass
-        elif op == "3":
-            continue
-        else:
-            print("Opcion invalida.")
-    elif opcion == "4":
-        break
+            print("Opcion Invalida.")
+
+
+main()
