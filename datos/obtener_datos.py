@@ -26,3 +26,14 @@ def obtener_historial():
     listado_historial = sesion.query(HistorialDescargas).all()
     if len(listado_historial) > 0:
         return listado_historial
+    else: 
+        print("No hay historial")
+
+
+def buscar_usuario_por_id(id_usuario):
+    usuario = sesion.get(Usuario, id_usuario)
+    return usuario
+
+def buscar_recurso_por_id(id_recurso):
+    recurso = sesion.get(RecursoDigital, id_recurso)
+    return recurso
