@@ -3,7 +3,7 @@ from datos.actualizar_datos import actualizar_objeto
 from datos.obtener_datos import obtener_listado_usuarios, buscar_usuario_por_id
 from modelos.usuario import Usuario
 from ui.ingresar_datos import ingresar_datos_usuario, ingresar_id_usuario
-from negocio.validaciones import validar_suscripcion
+from negocio.validaciones import validar_suscripcion, validar_eliminacion
 from datos.eliminar_datos import eliminar_objeto
 from negocio.listados import tabla_usuarios_registrados
 
@@ -37,30 +37,10 @@ def actualizar_usuarios():
         print("ID invalida")
 
 
-def eliminar_usuario():
+def eliminar_recurso():
     usuario = buscar_usuario_por_id(ingresar_id_usuario())
     if not usuario:
         return print("Usuario no encontrado.")
-    confirmacion = input("1 = Confirmar | 0 = Volver Atras: ")
-    if confirmacion == "1":
+    eliminar = validar_eliminacion()
+    if eliminar:
         eliminar_objeto(usuario)
-    elif confirmacion == "0":
-        print("Cancelado.")
-    else:
-        print("Opcion invalida")
-
-
-def eliminar_usuario():
-    usuario = buscar_usuario_por_id(ingresar_id_usuario())
-    if not usuario:
-        return print("Usuario no encontrado.")
-    while True:
-        eliminar = input("1 = Confirmar | 0 = Volver Atrás: ")
-        if eliminar == "1":
-            eliminar_objeto(usuario)
-            break
-        elif eliminar == "0":
-            print("Cancelado.")
-            break
-        else:
-            print("Valor invalido, intente nuevamente.")
