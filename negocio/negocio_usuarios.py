@@ -2,9 +2,10 @@ from datos.insertar_datos import insertar_objeto
 from datos.actualizar_datos import actualizar_objeto
 from datos.obtener_datos import obtener_listado_usuarios, buscar_usuario_por_id
 from modelos.usuario import Usuario
-from prettytable import PrettyTable
-from ui.ingresar_datos import ingresar_datos_usuario, ingresar_usuario
+from ui.ingresar_datos import ingresar_datos_usuario, ingresar_id_usuario
 from negocio.validaciones import validar_suscripcion
+from datos.eliminar_datos import eliminar_objeto
+from negocio.listados import tabla_usuarios_registrados
 
 
 def registrar_usuarios():
@@ -20,17 +21,13 @@ def registrar_usuarios():
 
 
 def listar_usuarios():
-    usuarios = obtener_listado_usuarios()
-    tabla_usuarios = PrettyTable(["ID", "Nombre", "Correo", "Suscripcion"])
-    for usuario in usuarios:
-        tabla_usuarios.add_row([usuario.id, usuario.nombre, usuario.correo, usuario.nivel_suscripcion])
-    print(tabla_usuarios)
+    tabla = tabla_usuarios_registrados()
+    print(tabla)
 
 
 def actualizar_usuarios():
     try:
-        id_usuario = ingresar_usuario()
-        usuario = buscar_usuario_por_id(id_usuario)
+        usuario = buscar_usuario_por_id(ingresar_id_usuario())
         if not usuario:
             return print("Usuario no encontrado.")
         suscripcion_nueva = validar_suscripcion()
@@ -41,4 +38,29 @@ def actualizar_usuarios():
 
 
 def eliminar_usuario():
-    pass
+    usuario = buscar_usuario_por_id(ingresar_id_usuario())
+    if not usuario:
+        return print("Usuario no encontrado.")
+    confirmacion = input("1 = Confirmar | 0 = Volver Atras: ")
+    if confirmacion == "1":
+        eliminar_objeto(usuario)
+    elif confirmacion == "0":
+        print("Cancelado.")
+    else:
+        print("Opcion invalida")
+
+
+def eliminar_usuario():
+    usuario = buscar_usuario_por_id(ingresar_id_usuario())
+    if not usuario:
+        return print("Usuario no encontrado.")
+    while True:
+        eliminar = input("1 = Confirmar | 0 = Volver Atrás: ")
+        if eliminar == "1":
+            eliminar_objeto(usuario)
+            break
+        elif eliminar == "0":
+            print("Cancelado.")
+            break
+        else:
+            print("Valor invalido, intente nuevamente.")

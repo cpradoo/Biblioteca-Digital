@@ -35,9 +35,10 @@ def gestionar_usuarios():
         elif opcion == "4":
             eliminar_usuario()
         elif opcion == "5":
+            print("\nVolviendo al menu principal...")
             break
         else:
-            print("Opcion invalida.")
+            print("\nOpcion invalida, intente nuevamente.")
 
 
 def gestionar_recursos():
@@ -53,6 +54,7 @@ def gestionar_recursos():
         elif opcion == "4":
             eliminar_recurso()
         elif opcion == "5":
+            print("\nVolviendo al menu principal...")
             break
         else:
-            print("Opcion invalida.")
+            print("\nOpcion invalida, intente nuevamente.")

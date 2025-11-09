@@ -2,9 +2,10 @@ from datos.insertar_datos import insertar_objeto
 from datos.actualizar_datos import actualizar_objeto
 from datos.obtener_datos import obtener_listado_recursos, buscar_recurso_por_id
 from modelos.recurso_digital import RecursoDigital
-from prettytable import PrettyTable
-from ui.ingresar_datos import ingresar_datos_recurso, ingresar_recurso
-from negocio.validaciones import validar_suscripcion
+from ui.ingresar_datos import ingresar_datos_recurso, ingresar_id_recurso
+from negocio.validaciones import validar_suscripcion, validar_eliminacion
+from datos.eliminar_datos import eliminar_objeto
+from negocio.listados import tabla_recursos_digitales
 
 
 def registrar_recurso():
@@ -20,17 +21,13 @@ def registrar_recurso():
 
 
 def listar_recursos():
-    recursos = obtener_listado_recursos()
-    tabla_recursos = PrettyTable(["ID", "Titulo", "Tipo", "Suscripcion"])
-    for recurso in recursos:
-        tabla_recursos.add_row([recurso.id, recurso.titulo, recurso.tipo, recurso.nivel_suscripcion])
-    print(tabla_recursos)
+    tabla = tabla_recursos_digitales()
+    print(tabla)
 
 
 def actualizar_recursos():
     try:
-        id_recurso = ingresar_recurso()
-        recurso = buscar_recurso_por_id(id_recurso)
+        recurso = buscar_recurso_por_id(ingresar_id_recurso())
         if not recurso:
             return print("Recurso no encontrado.")
         suscripcion_nueva = validar_suscripcion()
@@ -41,4 +38,9 @@ def actualizar_recursos():
 
 
 def eliminar_recurso():
-    pass
+    recurso = buscar_recurso_por_id(ingresar_id_recurso())
+    if not recurso:
+        return print("Recurso no encontrado.")
+    eliminar = validar_eliminacion()
+    if eliminar:
+        eliminar_objeto(recurso)

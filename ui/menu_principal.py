@@ -30,7 +30,7 @@ def iniciar_menu():
         elif opcion == "5":
             pass
         elif opcion == "0":
-            print("Saliendo del sistema...")
+            print("\nSaliendo del sistema...")
             break
         else:
-            print("Opcion Invalida.")
+            print("\nOpcion invalida, intente nuevamente.")

@@ -34,6 +34,7 @@ def buscar_usuario_por_id(id_usuario):
     usuario = sesion.get(Usuario, id_usuario)
     return usuario
 
+
 def buscar_recurso_por_id(id_recurso):
     recurso = sesion.get(RecursoDigital, id_recurso)
     return recurso
