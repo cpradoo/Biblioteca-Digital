@@ -1,5 +1,5 @@
-from negocio.negocio_usuarios import registrar_usuarios, listar_usuarios, actualizar_usuarios, eliminar_usuario
-from negocio.negocio_recursos import registrar_recurso, listar_recursos, actualizar_recursos, eliminar_recurso
+from negocio.negocio_usuarios import registrar_usuarios, listar_usuarios, actualizar_usuarios, eliminar_usuarios
+from negocio.negocio_recursos import registrar_recursos, listar_recursos, actualizar_recursos, eliminar_recursos
 
 
 def menu_gestion_usuarios():
@@ -33,7 +33,7 @@ def gestionar_usuarios():
         elif opcion == "3":
             actualizar_usuarios()
         elif opcion == "4":
-            eliminar_usuario()
+            eliminar_usuarios()
         elif opcion == "5":
             print("\nVolviendo al menu principal...")
             break
@@ -46,13 +46,13 @@ def gestionar_recursos():
         menu_gestion_recursos()
         opcion = input("Seleccione una opcion: ")
         if opcion == "1":
-            registrar_recurso()
+            registrar_recursos()
         elif opcion == "2":
             listar_recursos()
         elif opcion == "3":
             actualizar_recursos()
         elif opcion == "4":
-            eliminar_recurso()
+            eliminar_recursos()
         elif opcion == "5":
             print("\nVolviendo al menu principal...")
             break

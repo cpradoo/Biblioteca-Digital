@@ -1,14 +1,14 @@
 from datos.insertar_datos import insertar_objeto
-from datos.obtener_datos import buscar_usuario_por_id, buscar_recurso_por_id
+from datos.obtener_datos import buscar_usuario_por_id, buscar_recurso_por_id, obtener_historial
 from modelos.historial import HistorialDescargas
 from datetime import datetime
 from ui.ingresar_datos import ingresar_id_usuario, ingresar_id_recurso
-from negocio.listados import tabla_recursos_digitales, tabla_historial_descargas
+from negocio.tablas import tabla_recursos_digitales, tabla_historial_descargas
 
 
-def descargar_recurso():
+def descargar_recursos():
     try:
-        usuario = buscar_usuario_por_id(ingresar_id_usuario)
+        usuario = buscar_usuario_por_id(ingresar_id_usuario())
         if not usuario:
             return print("Usuario no encontrado.")
         tabla = tabla_recursos_digitales()
@@ -25,5 +25,7 @@ def descargar_recurso():
 
 
 def listar_historial():
-    tabla = tabla_historial_descargas()
-    print(tabla)
+    if obtener_historial():
+        return print(tabla_historial_descargas)
+    else:
+        print("No hay historial.")

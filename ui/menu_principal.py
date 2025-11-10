@@ -1,7 +1,7 @@
 from auxiliares.info_aplicacion import nombre_aplicacion
 from auxiliares.version import numero_version
 from ui.submenus import gestionar_usuarios, gestionar_recursos
-from negocio.negocio_descargas import descargar_recurso, listar_historial
+from negocio.negocio_descargas import descargar_recursos, listar_historial
 
 
 def menu_principal():
@@ -24,13 +24,13 @@ def iniciar_menu():
         elif opcion == "2":
             gestionar_recursos()
         elif opcion == "3":
-            descargar_recurso()
+            descargar_recursos()
         elif opcion == "4":
             listar_historial()
         elif opcion == "5":
             pass
         elif opcion == "0":
-            print("\nSaliendo del sistema...")
+            print("Saliendo del sistema...")
             break
         else:
             print("\nOpcion invalida, intente nuevamente.")
