@@ -87,9 +87,9 @@ titulo_gestion_usuarios = tkinter.Label(frame_usuarios, text="Gestión de Usuari
 titulo_gestion_usuarios.pack(fill="x", pady=(0, 20))
 
 
-botones_usuarios = [ "Agregar usuario", "Listar usuarios", "Actualizar suscripciones", "Eliminar usuarios", "Volver atrás",]
+botones_usuarios = [ "Agregar usuario", "Listar usuarios", "Actualizar suscripciones", "Eliminar usuarios", "Volver atras",]
 for texto in botones_usuarios:
-    comando = mostrar_menu_principal if texto == "Volver atrás" else None
+    comando = mostrar_menu_principal if texto == "Volver atras" else None
     b = tkinter.Button(frame_usuarios, text=texto, command=comando)
     efecto_boton(b)
     b.pack(fill="x", padx=300, pady=7)
@@ -102,9 +102,9 @@ titulo_recursos = tkinter.Label(frame_recursos, text="Recursos Digitales", font=
 titulo_recursos.pack(fill="x", pady=(0, 20))
 
 
-botones_recursos = ["Registrar recurso", "Listar recursos", "Actualizar suscripciones", "Eliminar recursos", "Volver atrás",]
+botones_recursos = ["Registrar recurso", "Listar recursos", "Actualizar suscripciones", "Eliminar recursos", "Volver atras",]
 for texto in botones_recursos:
-    comando = mostrar_menu_principal if texto == "Volver atrás" else None
+    comando = mostrar_menu_principal if texto == "Volver atras" else None
     b = tkinter.Button(frame_recursos, text=texto, command=comando)
     efecto_boton(b)
     b.pack(fill="x", padx=300, pady=7)
