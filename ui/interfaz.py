@@ -6,7 +6,6 @@ ventana.geometry("1024x768")
 ventana.configure(bg="#e6e9ef")
 
 
-# ==== FUNCIONES DE CAMBIO DE MENÚ ====
 def mostrar_menu_principal():
     frame_usuarios.pack_forget()
     frame_recursos.pack_forget()
@@ -23,7 +22,6 @@ def mostrar_menu_recursos():
     frame_recursos.pack(fill="both", expand=True)
 
 
-# ==== ESTILOS ====
 def efecto_boton(boton):
     boton.configure(
         bg="#d1d8e0",
@@ -49,17 +47,8 @@ def hover_out(e):
     e.widget["fg"] = "#1e272e"
 
 
-# ==== FRAME PRINCIPAL ====
 frame_principal = tkinter.Frame(ventana, bg="#e6e9ef")
-
-titulo = tkinter.Label(
-    frame_principal,
-    text="Biblioteca Digital",
-    font=("Segoe UI", 26, "bold"),
-    bg="#74b9ff",
-    fg="white",
-    pady=25,
-)
+titulo = tkinter.Label( frame_principal, text="Biblioteca Digital", font=("Segoe UI", 26, "bold"), bg="#74b9ff", fg="white", pady=25,)
 titulo.pack(fill="x", pady=(0, 20))
 
 botones_principales = [
